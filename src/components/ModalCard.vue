@@ -2,7 +2,7 @@
     <div class="modalCard">
         <b-button id="show-btn" @click="showModal">Ver mais</b-button>
 
-        <b-modal ref="my-modal" hide-footer>
+        <b-modal ref="modal-card" hide-footer>
             <div class="d-block">
                 <img :src="image" alt="">
                 <div class="text">
@@ -44,10 +44,10 @@ export default {
     },
     methods: {
         showModal() {
-            this.$refs['my-modal'].show()
+            this.$refs['modal-card'].show()
         },
         hideModal() {
-            this.$refs['my-modal'].hide()
+            this.$refs['modal-card'].hide()
         },
         adicionarCarrinho() {
             const produto = {
@@ -223,6 +223,23 @@ export default {
             border: 2px solid #3f4a1f;
             color: white;
             background: #3f4a1f;
+        }
+    }
+
+    @media(max-width: 480px) {
+        .block_button{
+            display: flex;
+            flex-wrap: wrap;
+
+            button {
+                width: 100%;
+                font-size: 19px;
+                margin: 15px 0 5px;
+            }
+
+            .inputs {
+                top: -10%;
+            }
         }
     }
 

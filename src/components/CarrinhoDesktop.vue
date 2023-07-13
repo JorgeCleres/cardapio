@@ -12,7 +12,7 @@
                     <tr class="description" v-for="car in carrinho" :key="car.nome">
                         <td>{{ car.nome.length > 15 ? car.nome.slice(0, 12) + '...' : car.nome }}</td>
                         <td>{{ car.quantidade }}</td>
-                        <td>{{ car.preco | dinheiro }}</td>
+                        <td>{{ car.preco * car.quantidade | dinheiro }}</td>
                         <td class="remove" @click="remover(car.id)">
                             <b-icon icon="trash"></b-icon>
                         </td>
@@ -39,10 +39,10 @@ export default {
     components: { ModalPedido },
     methods: {
         showModal() {
-            this.$refs['my-modal'].show()
+            this.$refs['modal-pedido'].show()
         },
         hideModal() {
-            this.$refs['my-modal'].hide()
+            this.$refs['modal-pedido'].hide()
         },
         remover(id) {
             this.$store.commit('removeProduto', id)
@@ -166,17 +166,5 @@ export default {
     tr {
         border: 0.5px solid grey;
         padding: 5px;
-    }
-
-    @media(max-width: 1366px) {
-        .carrinho {
-            width: 19%;
-        }
-    }
-
-    @media(max-width: 768px) {
-        .carrinho {
-            display: none
-        }
     }
 </style>

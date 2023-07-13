@@ -13,7 +13,7 @@
 
                     <div class="col-lg-4 col-md-2 footer-contact"></div>
 
-                    <div class="col-lg-3 col-md-4 footer-links">
+                    <div class="col-lg-3 col-md-8 footer-links">
                         <h4>Contato</h4>
                         <ul>
                             <li><strong>Local: </strong> Curitiba - Paraná</li>
@@ -40,7 +40,7 @@
     .footer {
         font-size: 14px;
         background: #3f4a1f;
-        height: 12vw;
+        height: 14rem;
     }
 
     .footer .footer-top {
@@ -50,7 +50,7 @@
     }
 
     .footer .footer-top img {
-        width: 160px;
+        width: 9rem;
     }
 
     .footer .footer-top .footer-contact h3 {
@@ -169,26 +169,24 @@
         transition: 0.3s;
     }
 
-    @media (max-width: 768px) {
-        #footer .footer-top {
-            min-height: 120vw;
-            margin: -60px 0 0px;
+    @media(max-width: 980px) {
+        .footer {
+            height: 24rem;
         }
-
-        #footer .footer-bottom {
-            font-size: 12px;
-        }
-
-        #footer .footer-top img {
-            width: 100px;
-        }
-
-        .footer .footer-top {
-            padding: 30px 0 60px 0;
-        }
-
         .footer .footer-top .footer-contact p {
-            margin: 10px 0px 20px;
+            font-size: 16px;
+            margin: 0px 0px 15px;
+        }
+        .footer .footer-top .footer-links ul li {
+            font-size: 19px;
+        }
+        .footer .footer-top .social-links a {
+            font-size: 23px;
+            width: 40px;
+            height: 40px;
+            margin-right: 20px;
+            padding: 6px 0;
         }
     }
+
 </style>

@@ -4,7 +4,7 @@
             Finalizar pedido {{ valorTotal | dinheiro }}
         </div>
 
-        <b-modal ref="my-modal" hide-footer>
+        <b-modal ref="modal-pedido" hide-footer>
             <div class="d-block">
                 <h5>Insira os seus dados para finalizar o pedido</h5>
                 <div class="form" v-on:submit.prevent="pedidoSubmitUserForm()">
@@ -25,6 +25,9 @@ import Vue from 'vue'
 import swal from 'sweetalert';
 
 export default {
+    props: {
+        hideModalCarrinho: Function
+    },
     data() {
         return {
             pedido: {
@@ -37,10 +40,10 @@ export default {
     },
     methods: {
         showModal() {
-            this.$refs['my-modal'].show()
+            this.$refs['modal-pedido'].show()
         },
-        hideModal() {
-            this.$refs['my-modal'].hide()
+        hideModal(name) {
+            this.$refs[name].hide()
         },
         pedidoSubmitUserForm() {},
         async enviarPedido() {
@@ -54,6 +57,8 @@ export default {
                             icon: 'success',
                         });
                         this.$store.dispatch('alteraCarrinho', [])
+                        this.$store.dispatch('removerQuantidade', 0)
+                        this.hideModalCarrinho()
                     })
                     .catch(() => {
                         swal({
@@ -89,7 +94,7 @@ export default {
 <style scoped lang="scss">
 
     .pedidoModal {
-        height: 2.5vw;
+        height: 6.5vw;
 
     }
     .button {

@@ -51,8 +51,8 @@ export default new Vuex.Store({
         adicionarQuantidade(state, produto) {
             state.quantidade += parseInt(produto.quantidade)
         },
-        removerQuantidade(state) {
-            state.quantidade --
+        removerQuantidade(state, param) {
+            param == 0 ? state.quantidade = 0 : state.quantidade--
         },
         alteraCarrinho(state, param) {
             state.carrinho = param
@@ -84,6 +84,9 @@ export default new Vuex.Store({
         },
         mostraNotificacao(context, payload) {
             context.commit('mostraNotificacao', payload)
+        },
+        removeProduto(context, payload) {
+            context.commit('removeProduto', payload)
         },
         removerQuantidade(context, payload) {
             context.commit('removerQuantidade', payload)

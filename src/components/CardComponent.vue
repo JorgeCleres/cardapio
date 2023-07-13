@@ -73,17 +73,14 @@ export default {
 <style scoped lang="scss">
 .card_children {
     border-radius: 15px;
-    .topo {
-        display: flex;
-        justify-content: space-between;
-    }
 
     .star {
         margin: 9px 10px;
-        z-index: 1;
         background: white;
         border-radius: 20px;
         padding: 1px 10px;
+        position: relative;
+        width: 4.5rem;
 
         img {
             width: 16px;
@@ -122,12 +119,11 @@ export default {
         margin: -44px 0 0;
     }
 
-
     .buttons {
         display: flex;
         justify-content: space-between;
         position: relative;
-        top: 60px;
+        top: 4rem;
 
         button {
             border-radius: 5px;
@@ -168,17 +164,28 @@ export default {
     }
 }
 
-@media(max-width:768px) {
-    .card_children .buttons {
-        top: 12px;
-    }
-    .card_children .text h6 {
-        font-size: 16px;
+    @media(max-width: 1200px) {
+        .card_children .buttons {
+            top: 6rem;
+        }
     }
 
-    .card_children #produto {
-        height: 200px;
+    @media(max-width: 768px) {
+        .card_children #produto {
+            width: 100%;
+            border-radius: 10px 0px 0px 10px;
+            height: 220px;
+            margin: -44px 0 0;
+        }
+        .card_children .buttons {
+            top: 3.5rem;
+        }
     }
-}
+
+    @media(max-width: 480px) {
+        .card_children .buttons {
+            top: 1.5rem;
+        }
+    }
 
 </style>

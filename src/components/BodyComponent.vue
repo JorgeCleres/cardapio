@@ -6,7 +6,7 @@
                 Todos
             </a>
             <a @click="buscaProdutos('biscoitos')">
-                <img src="@/assets/image/cookie.png" alt="">
+                <img src="@/assets/image/cookies.png" alt="">
                 Biscoitos
             </a>
             <a @click="buscaProdutos('bombons')">
@@ -32,7 +32,6 @@
                         :image = "prod.image"
                     />
                 </div>
-
                 <div v-if="count == 2" class="send">
                     <img src="../assets/image/logo.png" alt="logo">
                     <div class="text">
@@ -79,11 +78,11 @@ export default {
         }
 
         span > div {
-            width: 49%;
+            width: 28rem;
         }
 
         .card {
-            border-radius: 10px;
+            border-radius: 1rem;
             margin: 10px 0;
             border: 0px solid white;
             box-shadow: 3px 1px 14px 1px #d9d9d9;
@@ -96,8 +95,6 @@ export default {
             margin-bottom: 20px;
 
             img {
-                border: 1px solid #d9d9d9;
-                border-radius: 100px;
                 width: 40px;
                 height: 40px;
                 margin: 0 5px 0px -14px;
@@ -105,7 +102,7 @@ export default {
 
             a {
                 font-family: "Montserrat", sans-serif;
-                font-size: 18px;
+                font-size: 1rem;
                 cursor: pointer;
                 transition: 0.2s;
                 color: white;
@@ -123,21 +120,23 @@ export default {
         .send {
             display: flex;
             background: #3f4a1f;
-            width: 204%;
+            width: 56.5rem;
             border-radius: 10px;
             margin: 20px 0 10px;
-            height: 230px;
+            height: 13rem;
 
             img {
-                width: 270px;
+                width: 24%;
                 margin: 0 auto;
-                padding: 20px;
+                padding: 10px 0 20px;
+                height: fit-content;
             }
 
             .text {
-                padding: 80px 0;
+                left: -6%;
                 position: relative;
-                left: -12%;
+                top: 87%;
+                transform: translateY(-50%);
 
                 h3 {
                     font-family: "Montserrat", sans-serif;
@@ -155,54 +154,95 @@ export default {
         }
     }
 
-    @media(max-width:768px) {
-        .bodyCompoennt {
-            padding: 0 0px;
+    @media(max-width: 1400px) {
+        .bodyCompoennt span > div {
+            width: 23rem;
         }
 
-        .bodyCompoennt span > div {
-            width: 100%;
-        }
-        
         .bodyCompoennt .send {
-            width: 100%;
+            width: 48.5rem;
         }
-        .bodyCompoennt .send .text {
-            left: -3%;
+        .bodyCompoennt .send img {
+            width: 30%;
         }
     }
 
-    @media(max-width: 411px) {
-        .bodyCompoennt .buttons a {
-            font-size: 16px;
+    @media(max-width: 1200px) {
+        .bodyCompoennt span > div {
+            width: 50rem;
         }
         .bodyCompoennt .send {
-            height: 160px;
-        }
-        .bodyCompoennt .send img {
-            width: 70%;
-            height: 100%;
+            width: 40rem;
         }
         .bodyCompoennt .send .text h3 {
-            font-size: 19px;
+            font-size: 1.4rem;
+        }
+    }
+
+    @media(max-width: 768px) {
+        .bodyCompoennt .send {
+            width: auto;
         }
         .bodyCompoennt .send .text {
-            padding: 50px 0 0;
+            left: 0%;
+            top: 80%;
+        }
+        .bodyCompoennt .send .text h3 {
+            font-size: 1.4rem;
+        }
+        .bodyCompoennt .send img {
+            width: 35%;
+        }
+        .bodyCompoennt {
+            padding: 0 0px;
+            .buttons a {
+                font-size: 1rem;
+                color: #3f4a1f;
+                background: white;
+                padding: 5px 0px;
+                border-radius: 0px;
+                text-align: center;
+                display: grid;
+            }
+            .buttons a:hover {
+                color: #3f4a1f;
+                scale: 1.1;
+            }
+
+            .buttons img {
+                margin: 0 auto;
+                background: #3f4a1f;
+                border-radius: 80px;
+                padding: 3px;
+                width: 80px;
+                height: 80px;
+            }
+        }
+    }
+
+    @media(max-width: 480px) {
+
+        .bodyCompoennt .send .text h3 {
+            font-size: 1.1rem;
+            width: 90%;
+        }
+        .bodyCompoennt .send {
+            height: 9rem;
+        }
+        .bodyCompoennt {
+            padding: 0 0px;
+            .buttons a {
+                font-size: 0.8rem;
+                border-radius: 0px;
+            }
+
+            .buttons img {
+                width: 40px;
+                height: 40px;
+            }
         }
         .bodyCompoennt .send .text p {
-            font-size: 12px;
-        }
-        .bodyCompoennt .buttons img {
-            width: 30px;
-            height: 30px;
-            margin: 0 auto;
-        }
-        .bodyCompoennt .buttons a {
-            font-size: 13px;
-            padding: 5px 5px;
-            display: grid;
-            color: #3f4a1f;
-            background: transparent;
+            font-size: 15px;
         }
     }
 

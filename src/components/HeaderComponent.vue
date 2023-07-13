@@ -46,8 +46,8 @@ export default {
 <style scoped lang="scss">
 .header {
     background: #3F4A1F;
-    height: 10vw;
-    margin-bottom: 340px;
+    height: 12rem;
+    margin-bottom: 22rem;
 
     svg.bi-door-closed.b-icon.bi {
         float: right;
@@ -118,25 +118,18 @@ export default {
     }
 }
 
-@media(max-width: 1366px) {
-    .header {
-        margin-bottom: 370px;
-    }
-}
-
 @media(max-width: 768px) {
     .header img {
         height: auto;
+    }
+    .header {
+        margin-bottom: 8rem;
     }
 
     .header .header-body img {
         width: 30%;
         height: 100%;
         margin: -35px 5px 0px 10px;
-    }
-
-    .header {
-        margin-bottom: 310px;
     }
 
     .header .header-body .text h2 {
@@ -148,9 +141,19 @@ export default {
     }
 }
 
-@media(max-width: 411px) {
-    .header .header-body img[data-v-5c833af0] {
-        width: 35%;
+@media(max-width: 560px) {
+    .header {
+        height: 8rem;
+    }
+    .header img {
+        margin-top: 1px;
+    }
+    .header .container {
+        padding: 2px !important;
+    }
+    .header .header-body img {
+        width: 30%;
+        margin: -45px 0px 0px 10px;
     }
 
     .header .header-body .text h2 {
@@ -158,10 +161,26 @@ export default {
     }
 
     .header .header-body .text h3 {
-        font-size: 16px;
+        font-size: 13px;
     }
+}
 
+@media(max-width: 480px) {
     .header {
-        margin-bottom: 210px;
+        height: 6rem;
     }
-}</style>
+    .header .header-body .text h3 {
+        font-size: 11px;
+    }
+    .header .header-body .text h2 {
+        font-size: 1.3rem;
+    }
+}
+
+@media(max-width: 400px) {
+    .header {
+        height: 4rem;
+    }
+}
+
+</style>

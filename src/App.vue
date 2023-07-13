@@ -27,6 +27,10 @@ export default {
         padding: 0 !important;
     }
 
+    .modal {
+        margin: 20px 0
+    }
+
     .modal-content {
         height: auto;
         padding: 0 0 20px;
@@ -72,6 +76,4 @@ export default {
         border-radius: 20px;
         border: 4px solid white
     }
-
-    
 </style>

@@ -5,7 +5,7 @@
             <b-icon icon="cart2"></b-icon>
         </div>
 
-        <b-modal ref="my-modal" hide-footer>
+        <b-modal ref="modal-carrinho" hide-footer>
             <div class="d-block text-center">
                 <table v-if="carrinho.length" style="width:100%">
                     <tr class="title">
@@ -17,14 +17,17 @@
                     <tr class="description" v-for="car in carrinho" :key="car.nome">
                         <td>{{ car.nome }}</td>
                         <td>{{ car.quantidade }}</td>
-                        <td>{{ car.preco }}</td>
+                        <td>{{ car.preco * car.quantidade | dinheiro }}</td>
                         <td class="remove" @click="remover(car.id)">
                             <b-icon icon="trash"></b-icon>
                         </td>
                     </tr>
                 </table>
 
-                <span v-if="carrinho.length" class="buy">Finalizar Pedido {{ valorTotal | dinheiro }}</span>
+                <ModalPedido 
+                    v-if="carrinho.length" 
+                    :hideModalCarrinho="hideModal"
+                />
 
                 <div v-else class="null"> 
                     <b-icon icon="cart2"></b-icon>
@@ -36,19 +39,20 @@
 </template>
 
 <script>
+import ModalPedido from './ModalPedido.vue';
 
 export default {
+    components: { ModalPedido },
     methods: {
         showModal() {
-            this.$refs['my-modal'].show()
+            this.$refs['modal-carrinho'].show()
         },
         hideModal() {
-            this.$refs['my-modal'].hide()
+            this.$refs['modal-carrinho'].hide()
         },
         remover(id) {
-            this.$store.commit('removeProduto', id)
-            this.$store.commit('removerQuantidade', id)
-
+            this.$store.dispatch('removeProduto', id)
+            this.$store.dispatch('removerQuantidade', id)
         }
     },
     computed: {
@@ -123,15 +127,15 @@ export default {
     }
 
     .buy {
-        margin: 10px 10px 0;
-        float: left;
+        margin: 40px auto 0;
+        display: block;
         background: #5d6d33;
         padding: 5px;
         border-radius: 10px;
-        width: 50%;
+        width: 93%;
         color: white;
         cursor: pointer;
-        transition: 0.2s
+        transition: 0.2s;
     }
     .buy:hover {
         border: 1px solid #5d6d33;

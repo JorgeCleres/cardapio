@@ -42,9 +42,9 @@ export default {
         font-weight: unset;
     }
 
-    @media(max-width: 768px) {
+    @media(max-width: 980px) {
         h6 {
-            width: 36%;
+            width: 43%;
         }
     }
 </style>
