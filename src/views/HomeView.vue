@@ -23,6 +23,7 @@ import BodyComponent from '@/components/BodyComponent.vue';
 import CarrinhoDesktop from '@/components/CarrinhoDesktop.vue';
 import ModalCarrinho from '@/components/ModalCarrinho.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
+import axios from "axios";
 
 export default {
   components: {
@@ -37,8 +38,19 @@ export default {
           tela: false
       }
   },
-  created() {
-      this.tela = window.innerWidth > 768 ? true : false
+  async created() {
+    axios.get('https://cardapio-ya1c.onrender.com/produtos').then((resp) => {
+        console.log(resp.data);
+        let produtos = resp.data
+        console.log(produtos.produtos);
+        this.$store.dispatch('initProdutos', produtos.produtos)
+    })
+    .catch((err) => {
+        console.log(err);
+    })
+
+    this.tela = window.innerWidth > 768 ? true : false
+
   }
 }
 </script>

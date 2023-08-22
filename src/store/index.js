@@ -17,12 +17,14 @@ export default new Vuex.Store({
         },
         filteredProducts(state) {
             let items = []
-            items = state.produtos.filter(produto => {
-                return (
-                    produto.tipo.toLowerCase().indexOf(state.search.toLowerCase()) > -1
-                )
-            })
-            return items
+            if(state.produtos != undefined) {
+                items = state.produtos.filter(produto => {
+                    return (
+                        produto.tipo.toLowerCase().indexOf(state.search.toLowerCase()) > -1
+                    )
+                })
+                return items
+            }
         },
         carrinho(state) {
             return state.carrinho
@@ -66,13 +68,8 @@ export default new Vuex.Store({
         }
     },
     actions: {
-        initProdutos(context) {
-            Vue.prototype.$http('/produtos').then(resp => {
-                const data = resp.data.produtos
-                if (data) {
-                    context.commit('setProdutos', data)
-                }
-            })
+        initProdutos(context, payload) {
+            context.commit('setProdutos', payload)
         },
         adicionarProduto(context, payload) {
             setTimeout(() => {

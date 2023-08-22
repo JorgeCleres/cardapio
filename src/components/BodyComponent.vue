@@ -18,29 +18,36 @@
                 Variedades
             </a>
         </div>
-    
-        <transition-group 
-            enter-active-class="animated fadeIn"
-            leave-active-class="animated bounce">  
-            <div v-for="(prod, count) in filterProdutos" :key="prod.id">
-                <div class="card">
-                    <CardComponent
-                        :nome = "prod.nome"
-                        :preco = "prod.preco"
-                        :descricao = "prod.descricao"
-                        :id = "prod.id"
-                        :image = "prod.image"
-                    />
-                </div>
-                <div v-if="count == 2" class="send">
-                    <img src="../assets/image/logo.png" alt="logo">
-                    <div class="text">
-                        <h3>Entregamos para toda Curitiba</h3>
-                        <p>*consulte condições</p>
+        
+        <div v-if="filterProdutos">
+            <transition-group 
+                enter-active-class="animated fadeIn"
+                leave-active-class="animated bounce">  
+                <div v-for="(prod, count) in filterProdutos" :key="prod.id">
+                    <div class="card">
+                        <CardComponent
+                            :nome = "prod.nome"
+                            :preco = "prod.preco"
+                            :descricao = "prod.descricao"
+                            :id = "prod.id"
+                            :image = "prod.image"
+                        />
+                    </div>
+                    <div v-if="count == 2" class="send">
+                        <img src="../assets/image/logo.png" alt="logo">
+                        <div class="text">
+                            <h3>Entregamos para toda Curitiba</h3>
+                            <p>*consulte condições</p>
+                        </div>
                     </div>
                 </div>
+            </transition-group>       
+        </div>
+        <div v-else>
+            <div class="loader">
+                <img src="../assets/image/cookie-loader.png" alt="">
             </div>
-        </transition-group>       
+        </div>
     </div>
 </template>
 
@@ -67,7 +74,20 @@ export default {
 
 
 <style scoped lang="scss">
+        .loader {
+        //border: 16px solid #f3f3f3; /* Light grey */
+        //border-top: 16px solid #3498db; /* Blue */
+        border-radius: 100%;
+        width: 120px;
+        height: 120px;
+        animation: spin 2s linear infinite;
+        margin: 6rem auto 1rem;
+        }
 
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+        }
     .bodyCompoennt {
         padding: 0 30px;
 
